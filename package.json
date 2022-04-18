@@ -1,0 +1,27 @@
+{
+	"name": "medbikri-technologies-internship-submission",
+	"version": "0.0.0",
+	"description": "Medbikri Technologies Internship Submission by Kunal Keshan",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js",
+		"dev": "nodemon app.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kunalkeshan/Medbikri-Technologies-Internship-Submission.git"
+	},
+	"author": "Kunal Keshan",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/kunalkeshan/Medbikri-Technologies-Internship-Submission/issues"
+	},
+	"homepage": "https://github.com/kunalkeshan/Medbikri-Technologies-Internship-Submission#readme",
+	"devDependencies": {
+		"nodemon": "^2.0.15"
+	},
+	"dependencies": {
+		"express": "^4.17.3",
+		"mongoose": "^6.3.0"
+	}
+}
