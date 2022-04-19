@@ -6,7 +6,10 @@
 const {Schema, model} = require('mongoose');
 
 // Videos Schema
-const videosSchema = new Schema({});
+const videosSchema = new Schema({
+    title: String,
+    description: String,
+});
 
 // Videos Model
 const Videos = model('Videos', videosSchema);
