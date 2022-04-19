@@ -4,9 +4,10 @@
 
 // Dependencies
 const Router = require('express').Router();
+const appController = require('../controllers');
 
-// Router.get('/videos');
+Router.get('/api/videos', appController.getVideos);
 
-// Router.get('/videos/search')
+Router.get('/api/videos/search', appController.searchVideos);
 
-module.exports = Router();
+module.exports = Router;

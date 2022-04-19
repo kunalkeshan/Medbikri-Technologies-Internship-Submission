@@ -22,3 +22,6 @@ app.use(appRouter);
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+// RUN AGENDA JOB
+require('./utils/agenda');
