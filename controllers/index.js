@@ -23,8 +23,8 @@ appController.index = async (req, res) => {
         return res.status(200).json({
             message: `Application is running, YouTube Quota is ${apiRunning ? 'good' : 'exhausted'}`,
             data: {
-                repository: '',
-                motivation: '',
+                repository: 'https://github.com/kunalkeshan/Medbikri-Technologies-Internship-Submission',
+                motivation: 'Project made for Medbikri Technologies Internship',
                 owner: {
                     name: 'Kunal Keshan',
                     website: 'https://kunalkeshan.dev',
