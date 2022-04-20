@@ -8,14 +8,46 @@
 const appController = {};
 const res = require('express/lib/response');
 const Videos = require('../models/Videos');
+const { checkApiUptime } = require('../utils/googleapi');
 
 const LIMIT = 10;
 
 /**
- * @description - Get all videos
- * @api {GET} /videos Get all videos
- * @query {String} {limit}
+ * @description - Send application status
+ * @api {GET} / Send application status
  * @access Public
+ */
+appController.index = async (req, res) => {
+    try {
+        const apiRunning = await checkApiUptime();
+        return res.status(200).json({
+            message: `Application is running, YouTube Quota is ${apiRunning ? 'good' : 'exhausted'}`,
+            data: {
+                repository: '',
+                motivation: '',
+                owner: {
+                    name: 'Kunal Keshan',
+                    website: 'https://kunalkeshan.dev',
+                    github: 'https://github.com/kunalkeshan'
+                }
+            },
+            success: true,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: 'Internal Server Error',
+            error,
+            success: false,
+        });
+    }
+}
+
+/**
+ * @description - Get all videos
+ * @api {GET} /api/videos Get all videos
+ * @query {String} {limit, page}
+ * @access Public
+ * @example /api/videos?limit=10&page=1
  */
 appController.getVideos = async (req, res) => {
     // Getting Query from Request
@@ -44,9 +76,10 @@ appController.getVideos = async (req, res) => {
 
 /**
  * @description - Search videos
- * @api {GET} /videos/search Search videos
+ * @api {GET} /api/videos/search Search videos
  * @query {String} {query}
  * @access Public
+ * @example /api/videos/search?query=nodejs
  */
 appController.searchVideos = async (req, res) => {
     // Getting Query from Request

@@ -10,8 +10,12 @@ const { DB_URL, MAIN_TOPIC } = require('../config');
 
 const agenda = new Agenda({ db: { address: DB_URL } });
 
+agenda.on('ready', async () => {
+    console.log('Agenda Ready');
+});
+
 agenda.define('update video list', async (job) => {
-    try {
+    try { console.log('running');
         const videos = await findTopicVideos(MAIN_TOPIC);
         await Videos.insertMany(videos);
     } catch (error) {
@@ -52,7 +56,7 @@ agenda.define('remove duplicate videos', async (job) => {
 (async () => {
     try {
         await agenda.start();
-        await agenda.every('30 seconds', 'update video list');
+        await agenda.every('1 minute', 'update video list');
         await agenda.every('1 minute', 'remove duplicate videos');
     } catch (error) {
         console.log(error);

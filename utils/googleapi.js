@@ -4,7 +4,7 @@
 
 // Dependencies
 const axios = require('axios');
-const { YOUTUBE_API_KEY } = require('../config');
+const { YOUTUBE_API_KEY, MAIN_TOPIC } = require('../config');
 
 const baseURL = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&part=snippet&type=video&maxResults=10&order=date`;
 
@@ -29,6 +29,16 @@ const findTopicVideos = async (topic) => {
     }
 };
 
+const checkApiUptime = async () => {
+    try {
+        const response = await axios.get(`${baseURL}&q=${MAIN_TOPIC}`);
+        return response.status === 200;
+    } catch (error) {
+        return false;
+    }
+}
+
 module.exports = {
     findTopicVideos,
+    checkApiUptime,
 }
