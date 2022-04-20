@@ -1,6 +1,6 @@
 {
 	"name": "medbikri-technologies-internship-submission",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Medbikri Technologies Internship Submission by Kunal Keshan",
 	"main": "app.js",
 	"scripts": {
