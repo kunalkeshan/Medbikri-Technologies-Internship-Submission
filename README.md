@@ -7,7 +7,6 @@ Table of Contents:
   - [Search Videos](#search-videos)
 - [Objective](#objective)
 - [Basic Requirements](#basic-requirements)
-- [Bonus Points](#bonus-points)
 
 ## Task Done
 
