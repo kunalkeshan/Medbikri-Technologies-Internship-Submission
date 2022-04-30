@@ -55,9 +55,9 @@ agenda.define('remove duplicate videos', async (job) => {
 
 (async () => {
     try {
-        await agenda.start();
-        await agenda.every('1 minute', 'update video list');
-        await agenda.every('1 minute', 'remove duplicate videos');
+        // await agenda.start();
+        // await agenda.every('1 minute', 'update video list');
+        // await agenda.every('1 minute', 'remove duplicate videos');
     } catch (error) {
         console.log(error);
     }

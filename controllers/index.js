@@ -19,9 +19,10 @@ const LIMIT = 10;
  */
 appController.index = async (req, res) => {
     try {
-        const apiRunning = await checkApiUptime();
+        // const apiRunning = await checkApiUptime();
         return res.status(200).json({
-            message: `Application is running, YouTube Quota is ${apiRunning ? 'good' : 'exhausted'}`,
+            // message: `Application is running, YouTube Quota is ${apiRunning ? 'good' : 'exhausted'}`,
+            message: 'Application is running, YouTube Quota is deprecated for this project.',
             data: {
                 repository: 'https://github.com/kunalkeshan/Medbikri-Technologies-Internship-Submission',
                 motivation: 'Project made for Medbikri Technologies Internship',
